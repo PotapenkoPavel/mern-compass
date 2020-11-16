@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+
+*
+	box-sizing: border-box
+	font-family: 'Roboto', sans-serif
+
+html, body
+	height: 100%
+
+body	
+	background-color: #f5f5f5
+
+#root
+	position: relative
+	display: flex
+	flex-direction: column
+	min-width: 100%
+	min-height: 100%
+
+#map
+	width: 100%
+	height: 100%
+
+.ymaps-2-1-77-copyright__wrap, .ymaps-2-1-77-gototech
+	display: none !important
+
+.header
+	border-bottom-left-radius: 8px
+	border-bottom-right-radius: 8px
+	padding: 10px
+	z-index: 10
+
+	.header-inner
+		display: flex
+		align-items: center
+
+	.header-logo
+		display: flex
+		align-items: center
+		text-decoration: none
+		color: black
+		font-size: 20px
+
+	@media only screen and (max-width: 991px) 
+			.header-nav
+				display: none
+					
+				.header-nav-list, .btn
+					margin-left: 0 
+
+			.burger-wrapper
+				display: block
+			
+	@media only screen and (min-width: 992px) 
+			.burger-wrapper
+				display: none
+
+			.header-nav.dropdown
+				display: none
+    
+.header-nav
+	display: flex
+	flex-grow: 1
+	align-items: center
+	transition: all .5s
+
+	&.dropdown
+		padding-top: 80px 
+		z-index: 1
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(0, 0, 0, 0.9)
+		display: flex
+		justify-content: start
+		align-items: start
+		transform: translateX(-100%)
+		opacity: 0
+
+		&.active
+			transform: translateX(0)
+			opacity: 1
+
+		.header-nav-list
+			display: flex
+			flex-direction: column
+
+			.header-nav-item
+				margin: 0
+				margin-bottom: 10px
+
+				.header-nav-link
+					color: #f8f9fa
+
+				&:last-child
+					margin: 0
+
+		.btn
+			margin: 20px 0 60px 0
+
+	.btn
+		font-size: 15px
+		margin-left: auto
+
+	.header-nav-list
+		padding: 0
+		margin: 0
+		margin-left: auto
+		display: flex
+		list-style-type: none
+	
+	.header-nav-item
+		margin-right: 15px
+
+		&:last-child
+			margin-right: 0
+
+	.header-nav-link
+		color: rgba(0, 0, 0, .5)
+		text-decoration: none
+		
+		&.active
+			color: rgba(0, 0, 0, .9)
+
+	@media only screen and (min-width: 992px)
+		&.dropdown
+			display: none
+	
+.locations
+
+	&__list
+		position: relative
+		overflow: auto
+		max-height: 392px
+
+		&::-webkit-scrollbar
+			display: none
+
+	@media only screen and (min-width: 320px) and (max-width: 480px)
+		&__list
+			max-height: 382px
+
+	@media only screen and (max-height: 600px)
+		&__list
+			max-height: 256px
+
+.page-title
+	h1
+		font-size: 28px
+		font-weight: normal
+
+	small
+		font-weight: 100
+		font-size: 24px
+
+	@media only screen and (min-width: 320px) and (max-width: 480px)
+		h1
+			font-size: 22px
+			line-height: 22px
+
+			small
+				font-size: 18px
+
+.rating
+	display: flex
+
+	&__item
+		width: 20px
+		height: 20px
+		margin-right: 5px
+
+		&:last-child
+			margin-right: 0
+
+.location-card
+	position: relative
+	border-radius: 5px
+	background-color: #fff
+	margin-bottom: 10px
+
+	&:last-child
+		margin-bottom: 0px !important
+
+	&__header
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-items: flex-start
+		margin-bottom: 10px
+
+	&__name
+		line-height: 20px
+		font-size: 18px
+		text-decoration: none
+
+		&:hover
+			text-decoration: none
+
+	&__distance
+		padding: 5px
+		position: absolute
+		bottom: 8px
+		right: 8px
+		font-weight: normal
+
+	&__address
+		margin: 0
+		line-height: 18px
+
+	&__facilities
+		display: flex
+		flex-wrap: wrap
+		margin-top: 5px
+		line-height: 100px
+
+	&__tag
+		margin: 5px 5px 0 0
+		font-weight: normal
+
+	@media only screen and (min-width: 320px) and (max-width: 480px)
+		.location-card__name
+			width: 100%
+			margin-bottom: 10px
+
+		.location-card__address
+			font-size: 16px
+			line-height: 16px
+
+		.location-card__facilities
+			max-width: 70%
+
+.location-detail
+
+	.card
+		.card-header
+			background: #fff
+
+	&__rating
+		margin-bottom: 5px
+
+	&__opening-hours
+		display: flex
+
+		.card
+			flex-grow: 1
+
+			p
+				&:last-child
+					margin-bottom: 0
+
+	&__facilities
+		display: flex
+
+		.card
+			flex-grow: 1
+
+			.badge
+				margin-right: 5px
+				font-weight: 400
+
+				&:last-child
+					margin-right: 0
+
+	&__map
+		height: 500px
+
+	@media only screen and (min-width: 320px) and (max-width: 480px)
+		&__map
+			height: 400px
+
+.review-block
+	&__header
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-start
+		justify-content: space-between
+
+	&__title
+		margin: 0 50px 0 0
+
+	@media only screen and (max-width: 480px)
+		&__title
+			font-size: 22px
+			line-height: 22px
+			flex-basis: 100%
+
+		&__btn
+			font-size: 14px
+			font-weight: 400
+
+.review-form
+	textarea
+		resize: none
+
+.auth
+	display: flex
+	height: 100%
+	padding: 15px
+	margin: auto 0
+	align-items: center
+	justify-content: center
+	overflow: hidden
+
+	&__form
+		width: 100%
+		max-width: 330px
+
+		img
+			height: 72px
+			width: 72px
+			user-select: none
+
+		.form-control
+			position: relative
+			height: auto
+			padding: 10px
+			box-sizing: border-box
+			font-size: 16px
+
+			&:focus
+				z-index: 2
+
+		input[type="email"]
+			margin-bottom: -1px
+			border-bottom-right-radius: 0
+			border-bottom-left-radius: 0
+
+		input[type="password"]
+			margin-bottom: 10px
+			border-top-left-radius: 0
+			border-top-right-radius: 0
+
+		.buttons-wrapper
+			display: flex
+			justify-content: space-between
+			align-items: center
+
+			.btn
+				font-size: 18px
+				max-width: 160px
+
+#toast-container
+	display: block
+	position: fixed
+	z-index: 10000
+
+	.toast
+		-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)
+		border-radius: 2px
+		top: 35px
+		width: auto
+		margin-top: 10px
+		position: relative
+		max-width: 100%
+		height: auto
+		min-height: 48px
+		line-height: 1.5em
+		background-color: #323232
+		padding: 10px 25px
+		font-size: 1.1rem
+		font-weight: 300
+		color: #fff
+		display: -webkit-box
+		display: -webkit-flex
+		display: -ms-flexbox
+		display: flex
+		-webkit-box-align: center
+		-webkit-align-items: center
+		-ms-flex-align: center
+		align-items: center
+		-webkit-box-pack: justify
+		-webkit-justify-content: space-between
+		-ms-flex-pack: justify
+		justify-content: space-between
+		cursor: default
+
+		&.rounded
+			border-radius: 24px
+
+		& .toast-action
+			color: #eeff41
+			font-weight: 500
+			margin-right: -25px
+			margin-left: 3rem
+
+	@media only screen and (max-width: 600px)
+		min-width: 100%
+		bottom: 0%
+
+		.toast
+			width: 100%
+			border-radius: 0
+
+	@media only screen and (min-width: 601px) and (max-width: 992px)
+		left: 5%
+		bottom: 7%
+		max-width: 90%
+
+	@media only screen and (min-width: 993px)
+		top: 10%
+		right: 7%
+		max-width: 86%
+
+.marker
+	position: relative
+	cursor: pointer
+
+	&.active .marker-content
+		visibility: visible
+
+	&.active .marker-wrapper .marker-pin-hover
+		visibility: visible
+
+	.marker-wrapper .marker-pin
+		visibility: hidden
+
+	.marker-content
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		visibility: hidden
+		position: absolute
+		top: 0
+		left: 15px
+		min-width: 150px
+		height: 37.5px
+		padding: 3px 4px 3px 22px
+		border-radius: 8px
+		border-top-left-radius: 0px
+		border-bottom-left-radius: 0px
+		z-index: 99
+		user-select: none
+		background: rgba(255, 255, 255, .9)
+		color: #f84177
+
+		&__name
+			font-size: 14px
+			font-weight: 700
+			white-space: nowrap
+
+		&__address
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+			font-size: 11px
+			font-weight: 400
+			letter-spacing: 0
+
+	.marker-wrapper
+
+		.marker-pin, .marker-pin-hover
+			z-index: 100
+			position: absolute
+			top: 0
+			left: 0
+
+		.marker-pin
+			visibility: visible
+
+		.marker-pin-hover
+			visibility: hidden
+	
+.footer
+	position: relative
+	bottom: 0

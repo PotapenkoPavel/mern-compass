@@ -1,0 +1,30 @@
+{
+  "name": "mern-compass",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node ./bin/www",
+    "server": "nodemon ./bin/www",
+    "client": "npm start --prefix client",
+    "server:install": "npm install",
+    "client:install": "npm install --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
+    "prod": "cross-env NODE_ENV=production concurrently \"npm run server\" \"npm run build --prefix client\"",
+    "heroku": "npm run server:install && npm run client:install && npm start"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
+    "config": "^3.3.2",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-validator": "^6.6.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.4"
+  }
+}

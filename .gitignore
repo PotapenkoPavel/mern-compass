@@ -1,0 +1,6 @@
+.git
+.vscode
+/config
+/client/build
+Procfile
+node_modules
